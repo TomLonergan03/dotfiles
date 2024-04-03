@@ -1,0 +1,165 @@
+// -*- mode: json -*-
+{
+	"layer": "top",
+	"position": "top",
+	"modules-left": [
+		"hyprland/workspaces",
+		"custom/right-arrow-dark",
+		"custom/right-arrow-light",
+		"pulseaudio",
+		"custom/volumedown",
+		"custom/volumeup",
+		"custom/right-arrow-dark",
+		"custom/right-arrow-light",
+		"custom/light",
+		"custom/light-down",
+		"custom/light-up",
+		"custom/right-arrow-dark",
+		"custom/right-arrow-light",
+		"network",
+		"custom/right-arrow-dark"
+	],
+	"modules-center": [
+		"custom/left-arrow-dark",
+		"clock#1",
+		"custom/left-arrow-light",
+		"custom/left-arrow-dark",
+		"clock#2",
+		"custom/right-arrow-dark",
+		"custom/right-arrow-light",
+		"clock#3",
+		"custom/right-arrow-dark"
+	],
+	"modules-right": [
+		"custom/left-arrow-dark",
+		"memory",
+		"custom/left-arrow-light",
+		"custom/left-arrow-dark",
+		"cpu",
+		"temperature",
+		"custom/fan",
+		"custom/left-arrow-light",
+		"custom/left-arrow-dark",
+		"disk",
+		"custom/left-arrow-light",
+		"custom/left-arrow-dark",
+		"battery",
+		"tray"
+	],
+	"custom/left-arrow-dark": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/left-arrow-light": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/right-arrow-dark": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/right-arrow-light": {
+		"format": "",
+		"tooltip": false
+	},
+	"sway/workspaces": {
+		"disable-scroll": true,
+		"format": "{name}"
+	},
+	"clock#1": {
+		"format": "{:%A}",
+		"tooltip": false
+	},
+	"clock#2": {
+		"format": "{:%H:%M %Z}",
+		"tooltip": false
+	},
+	"clock#3": {
+		"format": "{:%y/%m/%d}",
+		"tooltip": false
+	},
+	"pulseaudio": {
+		"format": "󰓃 {volume:2}%",
+		"format-bluetooth": " {volume:2}%",
+		"format-muted": "󰓄 ",
+		"scroll-step": 0.0,
+		"on-click": "pactl set-sink-volume @DEFAULT_SINK@ 40%"
+	},
+	"custom/volumeup": {
+		"format": "+10%",
+		"tooltip": false,
+		"on-click": "pactl set-sink-volume @DEFAULT_SINK@ +10%"
+	},
+	"custom/volumedown": {
+		"format": "-10%",
+		"tooltip": false,
+		"on-click": "pactl set-sink-volume @DEFAULT_SINK@ -10%"
+	},
+	"memory": {
+		"interval": 1,
+		"format": "Mem {}%"
+	},
+	"cpu": {
+		"interval": 1,
+		"format": "CPU {usage:2}%"
+	},
+	"temperature": {
+		"interval": 1
+	},
+	"custom/fan": {
+		"exec": "sensors | awk '/fan1:/ {print $2,$3}'",
+		"format": "{} ",
+		"interval": 5
+	},
+	"battery": {
+		"states": {
+			"good": 75,
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon} {capacity}% - {time}",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"min-length": 18,
+		"format-time": "{H}h {m}m",
+		"format-charging": "{icon} <span font='Font Awesome 5 Free'></span> {capacity}% - {time}",
+		"format-full": "<span font='Font Awesome 5 Free 11'>{icon}</span> <span font='Font Awesome 5 Free'></span> Charged",
+		"interval": 10
+	},
+	"disk": {
+		"interval": 60,
+		"format": "Disk {percentage_used:2}%",
+		"path": "/"
+	},
+	"tray": {
+		"icon-size": 20
+	},
+	"network": {
+		"format-wifi": " {essid}",
+		"format-disconnected": "",
+		"max-length": 50,
+		"interval": 1,
+		"tooltip": false
+	},
+	"custom/light": {
+		"exec": "printf %.0f $(light -G)",
+		"format": "󰃟 {}% ",
+		"interval": 1,
+		"tooltip": false
+	},
+	"custom/light-up": {
+		"format": "+10%",
+		"tooltip": false,
+		"on-click": "light -A 10%"
+	},
+	"custom/light-down": {
+		"format": "-10%",
+		"tooltip": false,
+		"on-click": "light -U 10%"
+	}
+}

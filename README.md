@@ -8,5 +8,6 @@
 - `kitty`
 - `nvim`
 - `fish`
+- `swaylock`
 - [My scripts (somewhere on PATH)](https://github.com/TomLonergan03/scripts)
 - a bunch of other random programs in config.fish but up to you if you need them
